@@ -51,10 +51,10 @@ var conversation = new Conversation({
 
 var formData = {
 	'requesttype' : 'job.submit',
-	'apikey' : '4LRwch4Eq9t5GZns7RbTRgWoZ1vbttR',
-	'authaccountno' : '3648',
-	'authusername' : 'PersistentRESTAPI',
-	'authpassword' : 'HnE6.zmF',
+	'apikey' : '<Replace Omniscien Rest API key>',
+	'authaccountno' : '<Replace Omniscien Rest API Account Num>',
+	'authusername' : '<Replace Omniscien Rest API User Name>',
+	'authpassword' : '<Replace Omniscien Rest API Password>',
 	'jobtype' : 'phrase',
 	'inputtype' : 'Text',
 	'jobmode' : 'batch',
@@ -95,10 +95,10 @@ app.post('/api/message', function(req, res) {
 	if (req.body.input.text !== 'bm' && req.body.input.text  !== 'en' && languageOption !== 'en') {
 		formData = {
 			'requesttype' : 'job.submit',
-			'apikey' : '4LRwch4Eq9t5GZns7RbTRgWoZ1vbttR',
+			'apikey' : '<Replace Omniscien API key>',
 			'authaccountno' : '3648',
-			'authusername' : 'PersistentRESTAPI',
-			'authpassword' : 'HnE6.zmF',
+			'authusername' : '<Replace Omniscien Rest API User Name>',
+			'authpassword' : '<Replace Omniscien Rest API Password>',
 			'jobtype' : 'phrase',
 			'inputtype' : 'Text',
 			'jobmode' : 'batch',
@@ -229,8 +229,6 @@ function updateMessage(input, response) {
                      if(error) {
                        throw err;
                      }
-                     console.log("LALA Balance is ",data[0].balance);
-					 console.log("flag="+flag);
                      if (flag == 1){
 						response.output.text[0]="Your current outstanding balance is RM "+ data[0].balance;
 					 }else{
@@ -304,7 +302,7 @@ function jobSubmit(req, response) {
  */
 function jobStatus(req, response) {
 
-	request('https://lsapi.languagestudio.com/lsrestapi/LSRESTAPI.V4.jsp?apikey=4LRwch4Eq9t5GZns7RbTRgWoZ1vbttR&authaccountno=3648&authusername=PersistentRESTAPI&authpassword=HnE6.zmF&requesttype=job.status&jobidlist=' + jsonParseStr.jobid + '&detaillevel=1', function (error, response2, body) {
+	request('https://lsapi.languagestudio.com/lsrestapi/LSRESTAPI.V4.jsp?apikey=<Replace Omniscien Rest API Key>&authaccountno=<Replace Omniscien Rest API Account Num>&authusername=<Replace Omniscien Rest API User Name>&authpassword=<Replace Omniscien Rest API Password>&requesttype=job.status&jobidlist=' + jsonParseStr.jobid + '&detaillevel=1', function (error, response2, body) {
 		//console.log('error:', error); // Print the error if one occurred
 		//console.log('statusCode:', response2 && response2.statusCode); // Print the response status code if a response was received
 		//console.log('body:', body); // Print the HTML for the Google homepage.
