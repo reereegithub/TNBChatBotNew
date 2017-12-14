@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tenaga Nasional Berhad</title>
+
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+ <link rel="stylesheet" href="stylesheets/style.css">
+  
+<style>
+
+body { background: url(images/background_image.png) ;
+		background-width: 100%;		
+		}
+</style>
+</head>
+
+
+<header>
+
+<!--<img src="img/header.png"  class="header_image"/>-->
+<!--<img src ="img/logo.png" class="logo_image"/> -->
+</header>
+
+<body>
+
+<div class="container-fluid">
+	<!--<img src="images/background_image.png" class="background_image" >-->
+	<div id="contentParent" class="responsive-columns-wrapper">
+
+    <div id="chat-column-holder" class="responsive-column content-column" style="position:fixed; bottom:0;">
+      <div class="chat-column" style="padding-left:0px;">	 
+		 <div id="title_bar"  > <label style="color: #ffffff; ">&nbsp;&nbsp;<span class="glyphicon glyphicon-user"></span>&nbsp;Chat with us</label>
+				<div id="button" ><i class="glyphicon glyphicon-chevron-up" ></i> </div>
+		</div>
+		<div id="toggleDiv" style="display:none;">
+        <div id="scrollingChat" style="width: 502px;margin-top: 0px;height: 502px;"></div>
+		<div style="width: 502px;">
+        <label for="textInput" class="inputOutline" style="width:100%">
+         <input id="textInput" class="input responsive-column"
+           placeholder="Your query ? " type="text"
+            onkeydown="ConversationPanel.inputKeyDown(event, this)" style="width:100%;;margin-left: 23px;" />
+        </label> </div>
+      </div>
+	  </div>
+    </div>
+    <div id="payload-column" class="fixed-column content-column" style="display:none">
+      <div id="payload-initial-message">
+        Type something to see the output
+      </div>
+      <div id="payload-request" class="payload"></div>
+      <div id="payload-response" class="payload"></div>
+    </div>
+  </div>
+  <script src="js/common.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/conversation.js"></script>
+    <script src="js/payload.js"></script>
+    <script src="js/global.js"></script> 
+	<script src="js/toggle_div.js"></script>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,15 @@
+---
+declared-services:
+  my-conversation-service:
+    label: ree-conversation
+    plan: free
+applications:
+- name: t-botAppLatest
+  command: npm start
+  path: .
+  memory: 256M
+  instances: 1
+  services:
+  - Hackathon_Conversation_P
+  env:
+    NPM_CONFIG_PRODUCTION: false
