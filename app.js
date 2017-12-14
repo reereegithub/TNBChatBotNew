@@ -95,8 +95,8 @@ app.post('/api/message', function(req, res) {
 	if (req.body.input.text !== 'bm' && req.body.input.text  !== 'en' && languageOption !== 'en') {
 		formData = {
 			'requesttype' : 'job.submit',
-			'apikey' : '<Replace Omniscien API key>',
-			'authaccountno' : '3648',
+			'apikey' : '<Replace Omniscien Rest API key>',
+			'authaccountno' : '<Replace Omniscien Rest API Account Num>',
 			'authusername' : '<Replace Omniscien Rest API User Name>',
 			'authpassword' : '<Replace Omniscien Rest API Password>',
 			'jobtype' : 'phrase',
@@ -328,7 +328,7 @@ function jobStatus(req, response) {
  */
 function jobDownload(req, response) {
 
-	request('https://lsapi.languagestudio.com/lsrestapi/LSRESTAPI.V4.jsp?apikey=4LRwch4Eq9t5GZns7RbTRgWoZ1vbttR&authaccountno=3648&authusername=PersistentRESTAPI&authpassword=HnE6.zmF&requesttype=job.download&jobidlist=' + jsonParseStr.jobid, function (error, response3, body) {
+	request('https://lsapi.languagestudio.com/lsrestapi/LSRESTAPI.V4.jsp?apikey=<Replace Omniscien Rest API Key>&authaccountno=<Replace Omniscien Rest API Account Num>&authusername=<Replace Omniscien Rest API User Name>&authpassword=<Replace Omniscien Rest API Password>&requesttype=job.download&jobidlist=' + jsonParseStr.jobid, function (error, response3, body) {
 		//console.log('error:', error); // Print the error if one occurred
 		//console.log('statusCode:', response3 && response3.statusCode); // Print the response status code if a response was received
 		//console.log('body:', body); // Print the HTML for the Google homepage.
