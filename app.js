@@ -32,7 +32,7 @@ var q = require('q');
 */
 var localContext = {};
 var context_var = {};
-var token = "EAAcqlW6mvioBANaWzZBZCcm9Qr62UVHr4Ezbhjlmx2EChnCMbLtcYLtVPV3QZB3dYq8rFYDo6UaEY4PVHf6KCiJpVxk31OaJYDQdsztjfRZAQVm0MlgvopMhzWrvsk9GV2B4woPsZCzKJ4SNkcc3pmgWKuntOcEWohCbLSyrujwZDZD";
+var token = "<Replace Facebook Token>";
 
 var app = express();
 
