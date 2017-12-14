@@ -32,7 +32,7 @@ var q = require('q');
 */
 var localContext = {};
 var context_var = {};
-var token = "EAAcqlW6mvioBANaWzZBZCcm9Qr62UVHr4Ezbhjlmx2EChnCMbLtcYLtVPV3QZB3dYq8rFYDo6UaEY4PVHf6KCiJpVxk31OaJYDQdsztjfRZAQVm0MlgvopMhzWrvsk9GV2B4woPsZCzKJ4SNkcc3pmgWKuntOcEWohCbLSyrujwZDZD";
+var token = "<Replace Facebook Token>";
 
 var app = express();
 
@@ -44,17 +44,17 @@ app.use(bodyParser.json());
 var conversation = new Conversation({
   // If unspecified here, the CONVERSATION_USERNAME and CONVERSATION_PASSWORD env properties will be checked
   // After that, the SDK will fall back to the bluemix-provided VCAP_SERVICES environment property
-  'username': '44d8a0fe-c265-49a4-af2c-14e81adea78a',
-  'password': 'urizvMnABINP',
+  'username': '<Watson conversation username>',
+  'password': '<Watson conversation password>',
   'version_date': '2017-12-06'
 });
 
 var formData = {
 	'requesttype' : 'job.submit',
-	'apikey' : '4LRwch4Eq9t5GZns7RbTRgWoZ1vbttR',
-	'authaccountno' : '3648',
-	'authusername' : 'PersistentRESTAPI',
-	'authpassword' : 'HnE6.zmF',
+	'apikey' : '<Replace Omniscien Rest API key>',
+	'authaccountno' : '<Replace Omniscien Rest API Account Num>',
+	'authusername' : '<Replace Omniscien Rest API User Name>',
+	'authpassword' : '<Replace Omniscien Rest API Password>',
 	'jobtype' : 'phrase',
 	'inputtype' : 'Text',
 	'jobmode' : 'batch',
@@ -66,7 +66,7 @@ var jsonParseStr = '';
 
 var languageOption = 'en';
 
-var workspace = process.env.WORKSPACE_ID || '09c13306-27f8-455f-9b30-3748eab7cb30';
+var workspace = process.env.WORKSPACE_ID || '<Watson conversation workspace id>';
 //var payload = {};
 appPost ();
 // Endpoint to be call from the client side
@@ -78,7 +78,7 @@ app.post('/api/message', function(req, res) {
         console.log("Calling Greeting context");
         setGreetingContext();
     }
-  if (!workspace || workspace !== '09c13306-27f8-455f-9b30-3748eab7cb30') {
+  if (!workspace || workspace !== '<Watson conversation workspace id>') {
     return res.json({
       'output': {
         'text': 'The app has not been configured with a <b>WORKSPACE_ID</b> environment variable. Please refer to the ' + '<a href="https://github.com/watson-developer-cloud/conversation-simple">README</a> documentation on how to set this variable. <br>' + 'Once a workspace has been defined the intents may be imported from ' + '<a href="https://github.com/watson-developer-cloud/conversation-simple/blob/master/training/car_workspace.json">here</a> in order to get a working application.'
@@ -95,10 +95,10 @@ app.post('/api/message', function(req, res) {
 	if (req.body.input.text !== 'bm' && req.body.input.text  !== 'en' && languageOption !== 'en') {
 		formData = {
 			'requesttype' : 'job.submit',
-			'apikey' : '4LRwch4Eq9t5GZns7RbTRgWoZ1vbttR',
+			'apikey' : '<Replace Omniscien API key>',
 			'authaccountno' : '3648',
-			'authusername' : 'PersistentRESTAPI',
-			'authpassword' : 'HnE6.zmF',
+			'authusername' : '<Replace Omniscien Rest API User Name>',
+			'authpassword' : '<Replace Omniscien Rest API Password>',
 			'jobtype' : 'phrase',
 			'inputtype' : 'Text',
 			'jobmode' : 'batch',
@@ -229,8 +229,6 @@ function updateMessage(input, response) {
                      if(error) {
                        throw err;
                      }
-                     console.log("LALA Balance is ",data[0].balance);
-					 console.log("flag="+flag);
                      if (flag == 1){
 						response.output.text[0]="Your current outstanding balance is RM "+ data[0].balance;
 					 }else{
@@ -304,7 +302,7 @@ function jobSubmit(req, response) {
  */
 function jobStatus(req, response) {
 
-	request('https://lsapi.languagestudio.com/lsrestapi/LSRESTAPI.V4.jsp?apikey=4LRwch4Eq9t5GZns7RbTRgWoZ1vbttR&authaccountno=3648&authusername=PersistentRESTAPI&authpassword=HnE6.zmF&requesttype=job.status&jobidlist=' + jsonParseStr.jobid + '&detaillevel=1', function (error, response2, body) {
+	request('https://lsapi.languagestudio.com/lsrestapi/LSRESTAPI.V4.jsp?apikey=<Replace Omniscien Rest API Key>&authaccountno=<Replace Omniscien Rest API Account Num>&authusername=<Replace Omniscien Rest API User Name>&authpassword=<Replace Omniscien Rest API Password>&requesttype=job.status&jobidlist=' + jsonParseStr.jobid + '&detaillevel=1', function (error, response2, body) {
 		//console.log('error:', error); // Print the error if one occurred
 		//console.log('statusCode:', response2 && response2.statusCode); // Print the response status code if a response was received
 		//console.log('body:', body); // Print the HTML for the Google homepage.
