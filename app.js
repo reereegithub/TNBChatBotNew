@@ -44,8 +44,8 @@ app.use(bodyParser.json());
 var conversation = new Conversation({
   // If unspecified here, the CONVERSATION_USERNAME and CONVERSATION_PASSWORD env properties will be checked
   // After that, the SDK will fall back to the bluemix-provided VCAP_SERVICES environment property
-  'username': '44d8a0fe-c265-49a4-af2c-14e81adea78a',
-  'password': 'urizvMnABINP',
+  'username': '<Watson conversation username>',
+  'password': '<Watson conversation password>',
   'version_date': '2017-12-06'
 });
 
@@ -66,7 +66,7 @@ var jsonParseStr = '';
 
 var languageOption = 'en';
 
-var workspace = process.env.WORKSPACE_ID || '09c13306-27f8-455f-9b30-3748eab7cb30';
+var workspace = process.env.WORKSPACE_ID || '<Watson conversation workspace id>';
 //var payload = {};
 appPost ();
 // Endpoint to be call from the client side
@@ -78,7 +78,7 @@ app.post('/api/message', function(req, res) {
         console.log("Calling Greeting context");
         setGreetingContext();
     }
-  if (!workspace || workspace !== '09c13306-27f8-455f-9b30-3748eab7cb30') {
+  if (!workspace || workspace !== '<Watson conversation workspace id>') {
     return res.json({
       'output': {
         'text': 'The app has not been configured with a <b>WORKSPACE_ID</b> environment variable. Please refer to the ' + '<a href="https://github.com/watson-developer-cloud/conversation-simple">README</a> documentation on how to set this variable. <br>' + 'Once a workspace has been defined the intents may be imported from ' + '<a href="https://github.com/watson-developer-cloud/conversation-simple/blob/master/training/car_workspace.json">here</a> in order to get a working application.'
